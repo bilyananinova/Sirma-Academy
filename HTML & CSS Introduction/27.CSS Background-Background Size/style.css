@@ -1,0 +1,18 @@
+h1 {
+    background-image: url('./vackground-com-hp-tDqblBqE-unsplash.jpg');
+    color: white;
+    background-size: cover;
+    padding: 25px;
+}
+
+.site-nav ul {
+    padding: 0;
+}
+
+.site-nav li {
+    display: inline;
+    padding: 10px 15px;
+    background-color: rgb(234, 255, 72);
+    color: crimson;
+    font-weight: bold;
+}
