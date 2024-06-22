@@ -1,0 +1,18 @@
+.site-nav ul {
+    padding: 0;
+}
+
+.site-nav li {
+    display: inline;
+    padding-right: 10px;
+}
+
+.site-nav li,
+a {
+    color: crimson;
+}
+
+h1,
+a {
+    font-style: italic;
+}

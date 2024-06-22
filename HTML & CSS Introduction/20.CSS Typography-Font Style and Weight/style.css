@@ -1,0 +1,23 @@
+h1 {
+    font-style: oblique;
+}
+
+a {
+    font-weight: bold;
+    font-style: italic;
+}
+
+p {
+    font-style: normal;
+}
+
+.site-nav ul {
+    padding: 0;
+}
+
+.site-nav li {
+    display: inline;
+    padding-right: 10px;
+    color: crimson;
+    font-weight: bold;
+}
