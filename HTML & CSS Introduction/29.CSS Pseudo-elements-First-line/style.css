@@ -1,0 +1,23 @@
+body {
+    width: 50%;
+}
+
+.site-nav ul {
+    padding: 0;
+    margin: 0;
+}
+
+.site-nav li {
+    display: inline;
+    padding: 10px 15px;
+    background-color: rgb(234, 255, 72);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: crimson;
+    font-weight: bold;
+}
+
+p::first-line {
+    color: crimson;
+    text-decoration: underline;
+    font-weight: bold;
+}
