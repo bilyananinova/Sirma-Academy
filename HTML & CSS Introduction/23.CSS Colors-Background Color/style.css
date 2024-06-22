@@ -1,0 +1,33 @@
+body {
+    width: 1000px;
+}
+
+h1 {
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+a {
+    font-weight: bold;
+    font-style: italic;
+    background-color: rgb(173, 255, 72);
+    padding: 5px 10px;
+}
+
+.site-nav ul {
+    padding: 0;
+    text-align: center;
+}
+
+.site-nav li {
+    display: inline;
+    padding: 10px;
+    background-color: rgb(234, 255, 72);
+    color: crimson;
+    font-weight: bold;
+}
+
+p {
+    background-color: rgb(237, 232, 232);
+    padding: 15px;
+}

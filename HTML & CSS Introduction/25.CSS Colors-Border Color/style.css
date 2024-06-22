@@ -1,0 +1,30 @@
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    color: green;
+}
+
+.site-nav ul {
+    padding: 0;
+}
+
+.site-nav li {
+    display: inline;
+    padding: 10px;
+    background-color: rgb(234, 255, 72);
+    color: crimson;
+    border: 2px solid green;
+    font-weight: bold;
+}
+
+a {
+    color: rgb(20, 220, 27);
+    font-weight: bold;
+    background-color: rgb(234, 255, 72);
+    padding: 10px;
+}
+
+p {
+    background-color: rgb(237, 232, 232);
+    padding: 15px;
+    border: 2px solid green;
+}
