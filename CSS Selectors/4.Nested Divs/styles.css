@@ -1,0 +1,17 @@
+html {
+    background: lightblue;
+}
+
+.parent div {
+    display: block;
+}
+
+.parent {
+    width: 60%;
+    background: blueviolet;
+}
+
+.child {
+    width: 50%;
+    background: bisque;
+}
