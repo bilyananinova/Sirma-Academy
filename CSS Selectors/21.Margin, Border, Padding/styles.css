@@ -1,0 +1,8 @@
+.box-model {
+    margin: 2em;
+    padding: 1em 1.2em;
+    border: 3px solid purple;
+    background: peachpuff;
+    width: 10em;
+    text-align: center;
+}
