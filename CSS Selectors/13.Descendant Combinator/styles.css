@@ -1,0 +1,8 @@
+div p {
+    color: blueviolet;
+    background: lightskyblue;
+    border: 1px solid purple;
+    width: 200px;
+    padding: 1em;
+    text-align: center;
+}
