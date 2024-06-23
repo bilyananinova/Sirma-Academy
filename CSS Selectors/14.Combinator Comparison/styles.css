@@ -1,0 +1,16 @@
+div p {
+    color: blueviolet;
+    background: lightskyblue;
+    border: 1px solid purple;
+    width: 200px;
+    padding: 1em;
+    text-align: center;
+}
+
+div > p {
+    background: lightsalmon;
+    border: 3px dotted lightcoral;
+    width: 200px;
+    padding: 1em;
+    text-align: center;
+}

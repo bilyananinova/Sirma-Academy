@@ -1,0 +1,9 @@
+div>p {
+    color: crimson;
+    background: rgba(251, 251, 93, 0.974);
+    border: 2px solid crimson;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 1em;
+    width: 15em;
+    text-align: center;
+}
