@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>Change the content of a cell</title>
+
+    <style>
+        input {
+            width: 120px;
+            display: flex;
+            flex-direction: column;
+            padding: 0.3em;
+        }
+
+        table {
+            margin-bottom: 1em;
+        }
+
+        input[type="button"] {
+            margin-top: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="myTable" border="1">
+        <tr>
+            <td>Row1 cell1</td>
+            <td>Row1 cell2</td>
+        </tr>
+        <tr>
+            <td>Row2 cell1</td>
+            <td>Row2 cell2</td>
+        </tr>
+        <tr>
+            <td>Row3 cell1</td>
+            <td>Row3 cell2</td>
+        </tr>
+    </table>
+    <form>
+        <label for="row">Row:
+            <input type="text" name="row" value="">
+        </label>
+        <label for="cell"> Cell:
+            <input type="text" name="cell" value="">
+        </label>
+        <label for="new-content">New content:
+            <input type="text" name="new-content" value="">
+        </label>
+        <input type="button" onclick="changeContent()" value="Change content">
+    </form>
+</body>
+
+<script src="script.js"></script>
+
+</html>
