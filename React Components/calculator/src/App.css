@@ -1,0 +1,35 @@
+#root {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background: rgba(193, 193, 193, 0.773);
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+}
+
+.calculator input {
+  background: rgba(208, 208, 208, 0.8);
+  border: 1px solid blue;
+  font-size: 30px;
+  padding: 0.3em;
+}
+
+.calculator button {
+  padding: 2em;
+  background: rgb(127, 127, 217);
+  margin: 0.5em;
+  font-size: 16px;
+}
+
+.calculator .clear-div {
+  display: flex;
+  justify-content: center;
+}
+
+.calculator .clear-div button {
+  width: 45%;
+}
