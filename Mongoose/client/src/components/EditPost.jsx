@@ -1,32 +1,28 @@
-import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import { Button, Form, Input, } from 'antd';
 
-import { getOne, update } from '../../services/postService';
+import { useGetOnePost } from '../../queries/useGetOnePost';
+import { useUpdatePost } from '../../queries/useUpdatePost';
+import { useMutation } from '@tanstack/react-query';
+import { update } from '../../services/postService';
+import { postKeys } from '../../queries/postsKeys';
 
 let { TextArea } = Input;
 
 export default function EditPost() {
-    let [post, setPost] = useState({});
     let { id } = useParams();
+    let post = useGetOnePost(id);
+    let oldPost = useUpdatePost(id);
     let [form] = Form.useForm();
     let navigate = useNavigate();
+  
 
-    useEffect(() => {
-        async function fetch() {
-            let result = await getOne(id);
-            setPost(result);
-        }
-        fetch()
-    }, []);
-    
-    async function onFinish(values) {
-        let post = await update(values, id);
-        
-        if (post._id) {
-            navigate(`/blog/${post._id}`);
-        }
+    function onFinish(values) {
+        oldPost.mutate({title: values.title, content: values.content, image: values.image });
+
+        navigate(`/blog/${post.data._id}`);
+
     }
 
 
@@ -43,9 +39,9 @@ export default function EditPost() {
                 onFinish={onFinish}
 
                 {...form.setFieldsValue({
-                    title: post.title,
-                    content: post.content,
-                    image: post.image
+                    title: post.data.title,
+                    content: post.data.content,
+                    image: post.data.image
                 })}
             >
                 <Form.Item name="title" label="Title" >

@@ -1,24 +1,35 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { Button, Form, Input, } from 'antd';
 
 import { create } from '../../services/postService';
 import { AuthContext } from '../../contexts/AuthContext';
+import { postKeys } from '../../queries/postsKeys';
 
 let { TextArea } = Input;
 
 export default function CreatePost() {
+    let queryClient = useQueryClient();
     let user = useContext(AuthContext);
     let userId = user.userContext._id;
     let navigate = useNavigate();
 
-    async function onFinish(values) {
-        let post = await create({ ...values, author: userId });
-
-        if (post._id) {
-            navigate('/blog');
+    let createHandler = useMutation({
+        mutationFn: create,
+        mutationKey: postKeys.create(),
+        onSuccess: () => {
+            queryClient.invalidateQueries({
+                queryKey: postKeys.all(),
+                exact: true
+            })
         }
+    })
+
+    async function onFinish(values) {
+        createHandler.mutate({ ...values, author: userId });
+        navigate('/blog');
     }
 
     return (
@@ -31,7 +42,7 @@ export default function CreatePost() {
                 layout="horizontal"
                 style={{ maxWidth: 600, margin: 'auto' }}
                 name="basic"
-
+                createhandler={createHandler}
                 onFinish={onFinish}
             >
                 <Form.Item name="title" label="Title">

@@ -5,29 +5,21 @@ import { Button, Card } from 'antd';
 import { Image } from 'antd';
 
 import { AuthContext } from '../../contexts/AuthContext';
-import { getOne, deleteOne } from '../../services/postService';
+import { deleteOne } from '../../services/postService';
+import { useGetOnePost } from '../../queries/useGetOnePost';
+import { useDeletePost } from '../../queries/useDeletePost';
 
 export default function PostDetails() {
-    let [post, setPost] = useState({});
+    let { id } = useParams();
+    let post = useGetOnePost(id);
+    let deletePost = useDeletePost(id);
     let user = useContext(AuthContext);
     let userId = user.userContext._id;
-    let { id } = useParams();
     let navigate = useNavigate();
 
-    useEffect(() => {
-        async function fetch() {
-            let result = await getOne(id);
-            setPost(result);
-        }
-        fetch()
-    }, []);
-
     async function deleteHandler() {
-        let res = await deleteOne(id);
-        if (res) {
-            navigate('/blog');
-        }
-
+        deletePost.mutate(id);
+        navigate('/blog');
     }
 
     return (
@@ -35,16 +27,16 @@ export default function PostDetails() {
             <div style={{ width: 600, margin: 'auto' }}>
 
                 <Image
-                    src={post.image}
+                    src={post.data.image}
                 />
-                <Card title={post.title} bordered={false} >
-                    <p>{post.content}</p>
+                <Card title={post.data.title} bordered={false} >
+                    <p>{post.data.content}</p>
                 </Card>
 
-                {post.author == userId
+                {post.data.author == userId
                     ?
                     <>
-                        <Button type="primary" htmlType="a" style={{ marginRight: 10 }} href={`/blog/${post._id}/edit`}>
+                        <Button type="primary" htmlType="a" style={{ marginRight: 10 }} href={`/blog/${post.data._id}/edit`}>
                             Edit
                         </Button>
                         <Button type="primary" onClick={deleteHandler}>

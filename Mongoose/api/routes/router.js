@@ -19,7 +19,7 @@ router.put('/blog/:id/edit', async (req, res) => {
     res.json(post);
 });
 
-router.delete('/blog/:id/delete', async (req, res) => {
+router.delete('/blog/:id/delete', async (req, res) => {    
     let post = await deleteOne(req.params.id);
     res.json(post);
 });
